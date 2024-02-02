@@ -6,7 +6,7 @@ let clear = document.getElementById('clear');
 let equal = document.getElementsByClassName('.operator equal');
 
 function numberOnClick() {
-    console.log(this);
+    console.log("number");
  } 
 document.addEventListener('DOMContentLoaded', function()
     {
