@@ -1,12 +1,17 @@
 "use strict";
+let displayValue = document.getElementById("displayValue");
+let operations = document.querySelectorAll(".operators div");
+let number = document.querySelectorAll(".number div");
+let clear = document.getElementById('clear');
+let equal = document.querySelectorAll('.operator equal');
+ansDisplay = false;
+function numberOnClick() {
+    console.log(this);
+ } 
 document.addEventListener('DOMContentLoaded', function()
     {
-    let displayValue = document.querySelector(".displayValue");
-    let operations = document.querySelectorAll(".operators");
-    let pad = document.querySelectorAll(".pad");
-    document.write(displayValue);
-    document.write(operations);
-    document.write(pad);
-    // we now have access to the DOM tree!
-    // set up your initial document event handlers here.
-    };
+        let digitBtns =number;
+        for( let i=0; i<digitBtns.length; i++ ) {
+            digitBtns[i].addEventListener('click', digitOnClick);
+        };
+    });
