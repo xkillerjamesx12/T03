@@ -4,7 +4,7 @@ let operations = document.querySelectorAll(".operators div");
 let number = document.querySelectorAll(".number div");
 let clear = document.getElementById('clear');
 let equal = document.querySelectorAll('.operator equal');
-ansDisplay = false;
+/*ansDisplay = false;*/
 function numberOnClick() {
     console.log(this);
  } 
