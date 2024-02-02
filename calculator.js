@@ -1,12 +1,12 @@
 "use strict";
 let displayValue = document.getElementById("displayValue");
-let operations = document.querySelectorAll(".operators div");
-let number = document.querySelectorAll(".number div");
+let operations = document.getElementById("operators div");
+let number = document.getElementsByClassName("number");
 let clear = document.getElementById('clear');
-let equal = document.querySelectorAll('.operator equal');
-/*ansDisplay = false;*/
+let equal = document.getElementsByClassName('.operator equal');
+
 function numberOnClick() {
-    console.log("this");
+    console.log(this);
  } 
 document.addEventListener('DOMContentLoaded', function()
     {
