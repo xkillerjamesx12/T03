@@ -12,6 +12,6 @@ document.addEventListener('DOMContentLoaded', function()
     {
         let digitBtns =number;
         for( let i=0; i<digitBtns.length; i++ ) {
-            digitBtns[i].addEventListener('click', digitOnClick);
+            digitBtns[i].addEventListener('click', numberOnClick);
         };
     });
