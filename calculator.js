@@ -6,27 +6,76 @@ let clear = document.querySelectorAll('#clear');
 let equal = document.querySelectorAll('.equal');
 let dot = document.querySelectorAll('#dot');
 
+let valueStrInMemory = null;
+let operatorInMemory = null;
+let newNumChecker = false;
+let newValueNum = 0;
+//let lastnum = 1;
+
 function numberOnClick() {
 	let currentDisplay = displayValue.innerHTML
+  //console.log(newNumChecker);
 	if(currentDisplay === '0'){
-  	console.log("zero")
+  	//console.log("zero");
+  	displayValue.innerHTML = this.innerHTML;
+  } else if( operatorInMemory != null & newNumChecker === false){ 
+  	newNumChecker = true;
+  	//console.log(operatorInMemory);
   	displayValue.innerHTML = this.innerHTML;
   } else{
-  	console.log("non zero");
+  	//console.log("non zero or newnumchecker true");
   	displayValue.innerHTML += this.innerHTML;
   };
 }
 
 function operationOnClick() {
-  displayValue.innerHTML += this.innerHTML;
+	let currentValueNum = parseFloat(displayValue.innerHTML);
+  newNumChecker = false;
+  operatorInMemory = this.innerHTML;
+
+  //console.log('valuestrinmemory:' + valueStrInMemory);
+	switch(this.innerHTML){
+  
+  case '+':
+  	console.log(newValueNum);
+		newValueNum =+ urrentValueNum;
+    console.log(newValueNum);
+    valueStrInMemory = currentValueNum;
+    displayValue.innerHTML = newValueNum;
+    break;
+  
+  case '-':
+  	newValueNum -= currentValueNum;
+    valueStrInMemory = currentValueNum;
+    displayValue.innerHTML = newValueNum;
+  	break;
+  
+  case 'x':
+  	valueStrInMemory = currentValueNum * valueStrInMemory;
+  	break;
+  
+  case '/':
+  	newValueNum = currentValueNum / valueStrInMemory;
+  	break; 
+  };
 }
 
 function equalOnClick() {
+	newNumChecker = false;
+  if(valueStrInMemory){
+  
+  }
   displayValue.innerHTML += this.innerHTML;
 }
 
+
 function clearOnClick() {
-  displayValue.innerHTML += this.innerHTML;
+  displayValue.innerHTML = '0';
+  valueStrInMemory = null;
+	operatorInMemory = null;
+	newNumChecker = false;
+  //lastnum = 1;
+  
 }
 
 function dotOnClick() {
