@@ -77,6 +77,7 @@ function operationOnClick() {
   	console.log(valueStrInMemory);
     return;
   }
+  
   valueStrInMemory = getResultOfOperation();  
   //displayValue.innerHTML = valueStrInMemory;
   operatorInMemory = this.innerHTML;
