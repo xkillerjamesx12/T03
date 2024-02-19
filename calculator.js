@@ -36,23 +36,25 @@ function getResultOfOperation() {
 
     case '+':
       newValueNum = currentValueNum + valueStrInMemory;
-      //displayValue.innerHTML = newValueNum;
+      displayValue.innerHTML = newValueNum;
       //console.log(newValueNum);
       break;
 
     case '-':
       newValueNum = valueStrInMemory - currentValueNum;
-      //displayValue.innerHTML = newValueNum;
+      displayValue.innerHTML = newValueNum;
       //console.log(newValueNum);
       break;
 
     case 'x':
       newValueNum = currentValueNum * valueStrInMemory;
+      displayValue.innerHTML = newValueNum;
       //console.log(newValueNum);
       break;
 
     case '/':
       newValueNum = currentValueNum / valueStrInMemory;
+      displayValue.innerHTML = newValueNum;
       //console.log(newValueNum);
       break; 
     }
