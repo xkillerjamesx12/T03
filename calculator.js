@@ -10,7 +10,7 @@ let valueStrInMemory = null;
 let operatorInMemory = null;
 let newNumChecker = false;
 let newValueNum = 0;
-//let lastnum = 1;
+
 
 function numberOnClick() {
 	let currentDisplay = displayValue.innerHTML
@@ -28,44 +28,66 @@ function numberOnClick() {
   };
 }
 
+
+function getResultOfOperation() {
+	let currentValueNum = parseFloat(displayValue.innerHTML);
+  let newValueNum;  
+  switch(operatorInMemory){
+
+    case '+':
+      newValueNum = currentValueNum + valueStrInMemory;
+      //displayValue.innerHTML = newValueNum;
+      //console.log(newValueNum);
+      break;
+
+    case '-':
+      newValueNum = valueStrInMemory - currentValueNum;
+      //displayValue.innerHTML = newValueNum;
+      //console.log(newValueNum);
+      break;
+
+    case 'x':
+      newValueNum = currentValueNum * valueStrInMemory;
+      //console.log(newValueNum);
+      break;
+
+    case '/':
+      newValueNum = currentValueNum / valueStrInMemory;
+      //console.log(newValueNum);
+      break; 
+    }
+    return newValueNum;
+}
+
+
+
+
+
 function operationOnClick() {
 	let currentValueNum = parseFloat(displayValue.innerHTML);
   newNumChecker = false;
+	if (!valueStrInMemory) {
+  	valueStrInMemory = currentValueNum;
+    operatorInMemory = this.innerHTML;
+    console.log('operatorInMemory');
+		console.log(operatorInMemory);
+  	console.log('valueStrInMemory');
+  	console.log(valueStrInMemory);
+    return;
+  }
+  valueStrInMemory = getResultOfOperation();  
+  //displayValue.innerHTML = valueStrInMemory;
   operatorInMemory = this.innerHTML;
-
-  //console.log('valuestrinmemory:' + valueStrInMemory);
-	switch(this.innerHTML){
   
-  case '+':
-  	console.log(newValueNum);
-		newValueNum =+ urrentValueNum;
-    console.log(newValueNum);
-    valueStrInMemory = currentValueNum;
-    displayValue.innerHTML = newValueNum;
-    break;
-  
-  case '-':
-  	newValueNum -= currentValueNum;
-    valueStrInMemory = currentValueNum;
-    displayValue.innerHTML = newValueNum;
-  	break;
-  
-  case 'x':
-  	valueStrInMemory = currentValueNum * valueStrInMemory;
-  	break;
-  
-  case '/':
-  	newValueNum = currentValueNum / valueStrInMemory;
-  	break; 
-  };
 }
 
 function equalOnClick() {
-	newNumChecker = false;
-  if(valueStrInMemory){
-  
-  }
-  displayValue.innerHTML += this.innerHTML;
+	
+  valueStrInMemory = getResultOfOperation();  
+  displayValue.innerHTML = valueStrInMemory;
+	valueStrInMemory = null;
+	operatorInMemory = null;
+  newNumChecker = false;
 }
 
 
